@@ -41,9 +41,12 @@ Go to **Settings** -> **User Utilities** -> **U-Manager Files** to change:
 
 - **Root directory exposed (`BASE_PATH`)**: `/mnt/user` by default. Use
   `/mnt` to also reach unassigned disks (USB drives, etc.).
-- **Listen address (`ADDR`)**: `:8740` by default. Set
-  `127.0.0.1:8740` to bind to localhost only, or pick another port if
-  8740 is taken.
+- **Listen port**: `8740` by default. Pick another port if 8740 is taken.
+  The service listens on every interface. To bind it to one address
+  instead, set `ADDR` by hand in
+  `/boot/config/plugins/umfiles/umfiles.env`, for example
+  `ADDR=127.0.0.1:8740`, then run `/usr/local/sbin/rc.umfiles restart`.
+  Pressing Apply on the Settings page overwrites that value.
 - **Static API key**: optional. Adds a fixed key of your own on top of
   the keys Unraid issues. See [Authentication](#authentication).
 - **Allow embedding in a frame (`FRAME_ANCESTORS`)**: empty by default,
