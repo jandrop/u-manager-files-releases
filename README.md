@@ -37,7 +37,7 @@ key.
 
 ## Configuration
 
-Go to **Settings** -> **Other Settings** -> **U-Manager Files** to change:
+Go to **Settings** -> **User Utilities** -> **U-Manager Files** to change:
 
 - **Root directory exposed (`BASE_PATH`)**: `/mnt/user` by default. Use
   `/mnt` to also reach unassigned disks (USB drives, etc.).
@@ -49,8 +49,25 @@ Go to **Settings** -> **Other Settings** -> **U-Manager Files** to change:
 - **Allow embedding in a frame (`FRAME_ANCESTORS`)**: empty by default,
   which blocks every site from framing the UI. See
   [Embedding in the Unraid webGUI](#embedding-in-the-unraid-webgui).
+- **Hardware video transcode (`ENABLE_TRANSCODE`)**: off by default. See
+  [Hardware video transcode](#hardware-video-transcode).
+- **Image and video thumbnails (`ENABLE_THUMBNAILS`)**: on by default.
+  Turn it off if browsing large media folders feels slow.
 
 Apply restarts the service automatically.
+
+## Hardware video transcode
+
+Off by default. Turn it on in **Settings** -> **User Utilities** ->
+**U-Manager Files** and videos the browser cannot decode are transcoded
+on the fly, so HEVC, AV1 and 4K play anywhere.
+
+It needs an Intel GPU and the **Intel GPU TOP** plugin from Community
+Applications. Image and video thumbnails work without either.
+
+**Transcode GPU** picks the card. Leave it on Auto unless the server has
+more than one Intel GPU. Available only on plugin versions newer than
+2026.07.29.1.
 
 ## Embedding in the Unraid webGUI
 
