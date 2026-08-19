@@ -76,9 +76,10 @@ Use **Test connection** to confirm the app can reach the service, then **Save**.
 
 ## Signing in to the web UI
 
-The login screen asks for an API key. Any key issued by Unraid itself is
-accepted, so you sign in with a key Unraid already gave you. Besides the
-WebGUI route above, you can create one from the server terminal:
+The login screen asks for an API key, not your Unraid username and password.
+Any key issued by Unraid itself is accepted, so you sign in with a key Unraid
+already gave you. Besides the WebGUI route above, you can create one from the
+server terminal:
 
 ```
 unraid-api apikey --create
@@ -115,8 +116,8 @@ In Unraid, go to **Settings → User Utilities → U-Manager Files**:
   service listens on every interface; to bind it to one address instead, set
   `ADDR` by hand in `/boot/config/plugins/umfiles/umfiles.env`, for example
   `ADDR=127.0.0.1:8740`, then run `/usr/local/sbin/rc.umfiles restart`.
-- **Static API key (optional)** — empty means Unraid sign-in only. Set a value
-  to also accept that key in an `X-API-Key` header.
+- **Static API key (optional)** — empty means only keys issued by Unraid are
+  accepted. Set a value to also accept that key in an `X-API-Key` header.
 - **Allow embedding in a frame (`FRAME_ANCESTORS`)** — empty by default, which
   blocks every site from framing the UI. See
   [Embedding in the Unraid webGUI](#embedding-in-the-unraid-webgui).
